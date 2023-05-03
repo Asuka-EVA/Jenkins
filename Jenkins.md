@@ -537,7 +537,7 @@ Jenkins端配置好之后，还应在gitlab端配置Jenkins服务器的公钥
 beifen.sh
 ```
 
-# 四、 
+# 四、 Jenkins git参数化构建
 
 git参数化构建：开发人员推送代码之前，对此版本的代码·，打一个标签(tag)。我们可以认作为是此套代码的版本号。后续可以方便我们进行版本之间的切换。尤其是刚上线一套代码有问题，可以运用jenkins立即进行版本回退/切换；
 
@@ -545,7 +545,7 @@ git参数化构建：开发人员推送代码之前，对此版本的代码·，
 
 ![](assets/Jenkins/image-20220326112424871.png#crop=0&crop=0&crop=1&crop=1&id=kOahw&originHeight=619&originWidth=1782&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
-手动测试：
+#### 手动测试
 
 ```shell
 [root@gitlab ~]# git clone git@192.168.182.128:root/easy-springmvc-maven.git
