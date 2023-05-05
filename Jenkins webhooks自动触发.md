@@ -201,7 +201,7 @@ Secret token：aab74fc9bd2427f6989e7a2b8ab9b178
 
 ![img](assets/Jenkins webhooks自动触发/1652339456889-488c1d9d-e4c1-4d63-b868-c8264ab8ee61.png)
 
-注意：Jenkins需要配置git用户名 和 邮箱地址
+警示：Jenkins需要配置git用户名 和 邮箱地址
 
 ```shell
 [root@git-client ~]# su - jenkins
