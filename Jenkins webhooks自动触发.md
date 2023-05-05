@@ -1,1 +1,0 @@
-![image-20230505082326996](assets/Jenkins webhooks自动触发/image-20230505082326996.png)![image-20230505082328253](assets/Jenkins webhooks自动触发/image-20230505082328253.png)
