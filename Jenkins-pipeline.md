@@ -1761,7 +1761,7 @@ node {
 
 
 
-```plain
+```shell
 node {
     gitee_branch= "master"
     giteeUrl="git@gitee.com:youngfit/easy-springmvc-maven.git"
@@ -1784,7 +1784,29 @@ node {
 }
 ```
 
+```shell
+node {
+    github_branch= "master"
+    githubUrl="git@github.com:Asuka-EVA/easy-springmvc-maven.git"
+#    war_src = "/root/.jenkins/workspace/test-pip1/target/easy-springmvc-maven.war"
+#    war_dest = "/root/upload/"
+    stage("拉取github代码") {
+        git branch: "${github_branch}", url: "${githubUrl}", credentialsId: "250"
+        // print "${Tag}"
+        sh "git checkout ${Tag}"                                    
+    }
+    stage("编译打包") {
+        sh "mvn clean package"
+    }
+    stage("远程发送"){
+        sh "scp ${war_src} 192.168.174.xxx:${war_dest}"
+    }
+    stage("自动发布"){
+        sh "ansible tomcat1 -m shell -a 'nohup /opt/script/app-jenkins.sh &'"
+    }
+}
 
+```
 
 这就是标签式参数化了，不过这种方式有个小缺陷，不是什么大问题；如果是第一次构建，也就是没有拉取过代码的时候，它是无法识别到仓库中的标签的，因为它根本没有尝试识别过仓库地址，更别说识别到里面的tag了；不过识别不到，我们就点击构建即可，让他拉取一次，第二次就可以识别到了
 
